@@ -1,6 +1,6 @@
-import org.example.BankStatementCSVParser;
-import org.example.BankStatementParser;
-import org.example.BankTransaction;
+import org.example.parser.BankStatementCSVParser;
+import org.example.parser.BankStatementParser;
+import org.example.domen.BankTransaction;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class BankStatementCSVParserTest {
 
         final BankTransaction result = parser.parseFrom(line);
 
-        final BankTransaction expected = new BankTransaction(LocalDate.of(2017, Month.JANUARY, 30), -50, "Tesco");
+        final BankTransaction expected = new BankTransaction("30-01-2017", "-50", "Tesco");
         final double tolerance = 0.0d;
 
         Assert.assertEquals(expected.getDate(), result.getDate());

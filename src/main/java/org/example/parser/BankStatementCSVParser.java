@@ -1,4 +1,6 @@
-package org.example;
+package org.example.parser;
+
+import org.example.domen.BankTransaction;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -6,13 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BankStatementCSVParser implements BankStatementParser{
-    private static final DateTimeFormatter DATE_PATTERN = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
     @Override
     public BankTransaction parseFrom(final String line){
         final String[] columns = line.split(",");
 
-        final LocalDate date = LocalDate.parse(columns[0], DATE_PATTERN);
-        final double amount = Double.parseDouble(columns[1]);
+
+        final String date = columns[0];
+        final String amount = columns[1];
         final String description = columns[2];
 
         return new BankTransaction(date, amount, description);

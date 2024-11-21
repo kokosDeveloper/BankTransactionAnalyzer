@@ -1,4 +1,6 @@
-package org.example;
+package org.example.parser;
+
+import org.example.domen.BankTransaction;
 
 import java.util.List;
 
