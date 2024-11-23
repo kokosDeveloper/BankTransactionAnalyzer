@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Notification {
     private final List<String> errors = new ArrayList<>();
-    public void addError(final String messege){
-        errors.add(messege);
+    public void addError(final String message){
+        errors.add(message);
     }
     public boolean hasErrors(){
         return !errors.isEmpty();
